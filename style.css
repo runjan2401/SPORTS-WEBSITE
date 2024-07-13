@@ -1,0 +1,476 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "montserrat";
+    color: white;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+*::selection{
+    background-color: white;
+    color: #95C11E;
+}
+
+body::-webkit-scrollbar{
+    display: block;
+    width: 8px;
+    background: linear-gradient(to right,#95C11E,#000);
+}
+
+body::-webkit-scrollbar-thumb{
+    background-color: white;
+    border-radius: 50px;
+}
+
+#cursor{
+    height: 15px;
+    width: 15px;
+    background-color: #95C11E;
+    border-radius: 50%;
+    z-index: 99;
+    position: fixed;
+}
+
+#cursor-blur{
+    height: 500px;
+    width: 500px;
+    background-color: rgba(150, 193, 30, 0.157);
+    border-radius: 50%;
+    z-index: 9;
+    position: fixed;
+    filter: blur(40px);
+}
+
+#nav{
+    height: 145px;
+    width: 100%;
+    display: flex;
+    padding: 0 150px;
+    gap: 50px;
+    position: fixed; /*stable upper nav in all website*/
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 99; /*it help to get image in background and nav in front*/
+}
+
+#nav img{
+    height: 75px;
+}
+
+#nav h4{
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /*use to fix size according to window*/
+    position: fixed;
+    z-index: -1;
+}
+
+#main{
+   position: relative;
+   background-color: rgba(0, 0, 0, 0.37);
+}
+
+#page1{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /*flex contain goes in inline*/
+    text-align: center;
+    z-index: 10;
+}
+
+#page1 h1{
+    font-size: 120px;
+    font-weight: 900;
+    position: relative;
+}
+
+#page1 h1::before{
+    content: "EAT.DRINK.PLAY.";
+    position: absolute;
+    color: black;
+    top: -4px;
+    left: -3px;
+    -webkit-text-stroke: 2px #95C11E;
+    z-index: -1;
+}
+
+#page1 h2{
+    font-size: 29px;
+    font-weight: 800;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#page1 p{
+    font-size: 18px;
+    font-weight: 500;
+    width: 40%;
+}
+
+#page1 #arrow{
+    height: 150px;
+    width: 150px;
+    background-color: transparent;
+    border: 1px solid #95C11E;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    left: -1%;
+    bottom: -2%;
+    transition: all ease 0.5s;
+}
+
+#page1 #arrow i{
+    font-size: 50px;
+    font-weight: 100;
+}
+
+#page1 #arrow:hover{
+      scale: 0.4;
+      background-color: #95C11E;
+}
+
+
+#page2{
+   min-height:100vh;
+    width: 100%;
+    z-index: 10;
+}
+
+#scroller{
+   overflow-x: auto;
+   overflow-y: hidden;
+   white-space: nowrap;
+   position: relative;
+   z-index: 10;
+}
+
+#scroller::-webkit-scrollbar{
+    display: none;
+}
+
+#scroller h4{
+   display: inline-block;
+   font-size: 60px;
+   font-weight: 800;
+   margin-right: 15px;
+   color: transparent;
+   font-family: sans-serif;
+   transition: all linear 0.5s;
+   -webkit-text-stroke: 2px #95C11E;
+}
+
+#scroller h4:hover{
+    color: #95C11E;
+}
+
+#scroller-in{
+    display: inline-block;
+    white-space: nowrap;
+    animation-name: scroll;
+    animation-duration: 40s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes scroll{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+
+#about-us{
+    display: flex;
+    height: 40vh;
+    width: 100%;
+    background-color: transparent;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 50px;
+    position: relative;
+    z-index: 10;
+}
+
+#about-us img{
+    height: 220px;
+    width: 240px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+#about-us-in{
+    width: 50%;
+    text-align: center;
+}
+
+#about-us-in h3{
+    font-size: 48px;
+    font-weight:700;
+    margin-bottom: 30px;
+}
+
+#about-us-in p{
+    font-size: 20px;
+    line-height: 26px;
+}
+
+#cards-container{
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    position: relative;
+    z-index: 10;
+}
+
+.card{
+    height: 80%;
+    width: 24%;
+    border-radius: 20px;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    transition: all ease 0.8s;
+}
+
+#card1{
+    background-image: url(home-toptracer-1024x682.avif);
+}
+
+#card2{
+    background-image: url(card-img2.webp);
+}
+
+#card3{
+    background-image: url(card3.avif);
+}
+
+.overlay{
+    width: 100%;
+    height: 100%;
+    background-color: #95C11E;
+    padding-top: 160px;
+    padding: 30px;
+    opacity: 0;
+    transition: all ease 0.8s;
+}
+
+.overlay h4{
+    color: black;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: 800;
+    white-space: nowrap;
+    margin-bottom: 20px;
+}
+
+.overlay p{
+    color: black;
+    font-size: 18px;
+}
+
+.card:hover .overlay{
+    opacity: 1;
+}
+
+#green-div{
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to left bottom,#3af805e0,#b8eb2a);
+}
+
+#green-div h4{
+    width: 45%;
+    font-size: 27px;
+    line-height: 50px;
+    color: black;
+    text-align: center;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+#green-div img{
+    height: 100%;
+    object-fit: cover;
+    width: 14%;
+}
+
+#page3{
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#page3 p{
+    font-size: 33px;
+    font-weight: 700;
+    width: 56%;
+    line-height: 40px;
+    text-align: center;
+}
+
+#page3 img{
+    position: absolute;
+    height: 35px;
+}
+
+#page3 #left-arrow{
+    left: 16%;
+    top: 24%;
+}
+
+#page3 #right-arrow{
+    bottom: 29%;
+    right: 16%;
+}
+
+#page4{
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    position: relative;
+}
+
+#page4 h1{
+    font-size: 70px;
+    position: absolute;
+    top: -30%;
+    font-weight: 900;
+    color: black;
+    -webkit-text-stroke: 1px white;
+    font-family: sans-serif;
+}
+
+.eleme{
+    height: 70%;
+    width: 26%;
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+}
+
+.eleme h2{
+    height: 100%;
+    width:100%;
+    background-color: #95C11E;
+    display: flex;
+    color: black;
+    transition: all ease 0.5s;
+    font-weight: 800;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: 28px;
+    position: absolute;
+    z-index: 10;
+}
+
+.eleme img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: all ease 0.5s;
+    scale: 1.1;
+}
+
+.eleme:hover h2{
+    color: #fff;
+    background-color: transparent;
+}
+
+.eleme:hover img{
+    scale: 1.1;
+}
+
+#footer{
+    height: 40vh;
+    width: 100%;
+    background: linear-gradient(to left bottom,#119F3A 0%,#ACE022 80%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 150px;
+    padding: 0 100px;
+}
+
+#footer img{
+    height: 100%;
+    position: absolute;
+    left: 0;
+   
+}
+
+#f1 img{
+    height: 100px;
+    padding-left: 100px;
+    right: 20px;
+    bottom: 110px;
+
+}
+
+#f2,#f3,#f4{
+    width: fit-content;
+    position: relative;
+    z-index: 99;
+}
+
+#f2 h2{
+    font-size: 23px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: black;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+#f3 h2{
+    font-size: 23px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: black;
+    line-height: 23px;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+#f4 h4{
+    font-size: 18px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: black;
+    font-weight: 600;
+    line-height: 20px;
+    margin-bottom: 8px;
+}
+
+
